@@ -1,0 +1,29 @@
+%h2 Create Account
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  %div.col-md-4
+    %div
+      = f.label :email
+      %br/
+      = f.email_field :email, :autofocus => true
+    %div
+      = f.label :password
+      %br/
+      = f.password_field :password
+    %div
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation
+  %div.col-md-4
+    = f.fields_for :profile do |profile|
+      %div
+        = profile.label :gender
+        %br/
+        = profile.select "gender", options_for_select(GENDER)
+      %div
+        = profile.label :looking_for
+        %br/
+        = profile.select "looking_for", options_for_select(LOOKING_FOR)
+
+  %div= f.submit "Sign up"
+= render "devise/shared/links"

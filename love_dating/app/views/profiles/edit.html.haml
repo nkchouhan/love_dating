@@ -1,0 +1,25 @@
+=#"http://stackoverflow.com/questions/18428871/multi-column-forms-with-fieldsets"
+= simple_form_for(@profile, html: {class: 'form-horizontal'}) do |f|
+  .well.well-lg
+    %fieldset
+      %legend Personal Information
+      .row
+        .col-sm-4
+          .form-group
+            = f.input :first_name, label: 'First Name*'
+            = f.hint 'No special characters, please!'
+        .col-sm-4
+          .form-group
+            = f.input :last_name, label: 'First Name*'
+            = f.hint 'No special characters, please!'
+      .row
+        .col-sm-4
+          .form-group
+            = f.input :date_of_birth, as: :string, 'data-behaviour'=>'datepicker'
+      %legend Other Information
+      .row
+        .col-sm-4
+          .form-group
+            = f.association :interests,{:prompt=>"please select"}
+            = f.hint 'Please use Ctrl key on your keyboard to select multiple items'
+      

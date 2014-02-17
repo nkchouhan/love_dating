@@ -1,0 +1,5 @@
+#flash
+  - flash.each do |type, message|
+    .alert.fade.in.text-center
+      %button.close{"data-dismiss" => "alert"} ×
+      = message.html_safe

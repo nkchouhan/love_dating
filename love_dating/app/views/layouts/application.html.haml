@@ -1,0 +1,48 @@
+!!!
+%html
+  %head
+    %title LoveDating
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = csrf_meta_tags
+  %body
+    #main_container
+      #header
+        #logo
+          %a{:href => root_path}
+            %img{:alt => "", :border => "0", :height => "63", :src => "/assets/images/logo.png", :width => "206"}/
+        = render partial: 'shared/menu'
+      .search_tab
+        .search_title Quick search
+        .search_form
+          .form_row
+            %label.small I am a:
+            %input.small_input{:onclick => "this.value=''", :type => "text", :value => "woman"}/
+            %label.small seeking:
+            %input.small_input{:onclick => "this.value=''", :type => "text", :value => "man"}/
+          .form_row
+            %label.large looking for :
+            %input.large_input{:onclick => "this.value=''", :type => "text", :value => "relationship"}/
+            %input.checkbox{:type => "checkbox"}/
+            %label.small + photo
+          .form_row
+            %input.search_bt{:src => "images/search.gif", :type => "image"}/
+      #center_content
+        .center_bg.container
+          = render partial: 'shared/flash_message'
+          = yield
+        .center_bottom_bg
+      #footer
+        .footer_links
+          %a{:href => "http://all-free-download.com/free-website-templates/"} home
+          %a{:href => "http://all-free-download.com/free-website-templates/"} about us
+          %a{:href => "http://all-free-download.com/free-website-templates/"} terms &amp; conditions
+          %a{:href => "http://all-free-download.com/free-website-templates/"} privacy policy
+          %a{:href => "http://all-free-download.com/free-website-templates/"} contact us
+        .copyright
+          %a{:href => "http://csstemplatesmarket.com"}
+            %img{:alt => "", :border => "0", :src => "images/csstemplatesmarket.gif"}/
+    %div{:align => "center"}
+      This template  downloaded form
+      %a{:href => "http://all-free-download.com/free-website-templates/"} free website templates

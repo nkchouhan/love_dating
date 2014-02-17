@@ -1,0 +1,22 @@
+#menu
+  %ul
+    %li
+      %a.current{href: ""} home
+    %li
+      %a{href: ""} about us
+    - if user_signed_in?
+      %li
+        %a{href: ""} find a partner
+      %li
+        %a{href: ""} add profile
+      %li
+        %a{href: ""} my account
+      %li
+        = link_to "logout", destroy_user_session_path, :method=>:delete
+    -else
+      %li
+        = link_to "login",new_user_session_path
+      %li
+        = link_to "create account",new_user_registration_path
+    %li
+      %a{href: ""} contact us
